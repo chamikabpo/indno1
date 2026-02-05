@@ -1,9 +1,58 @@
-'use client';
 
-import React from 'react';
+import { strapiFetch,getStrapiMedia } from "../services/strapi";
+import StarCard  from "../components/blocks/Starcard";
+import ValueCard  from "../components/blocks/Valuecard";
+import journeyCard  from "../components/blocks/Journeycard";
+import EmployeCard  from "../components/blocks/Employecard";
+import Faqcard  from "../components/blocks/Faqcard";
 
+import ArticalCard  from "../components/blocks/ArticalCard";
+import ImgLftCard  from "../components/blocks/ImgLftCard";
+import ImgRthCard  from "../components/blocks/ImgRthCard";
+import TipwarnCard  from "../components/blocks/TipwarnCard";
+import TipsuccessCard  from "../components/blocks/TipsuccessCard";
+import TipdangerCard  from "../components/blocks/TipdangerCard";
 
-export default function Terms() { 
+import qs from 'qs';
+
+const COMPONENT_MAP = {
+  "block.starcard": StarCard,
+  "block.valuecard": ValueCard,
+  "block.journey-card": journeyCard,
+  "support.employecard": EmployeCard,
+  "support.faq": Faqcard,
+  "support.artical": ArticalCard,
+  "support.image-left": ImgLftCard,
+  "support.image-right": ImgRthCard,
+  "block.tipwarn": TipwarnCard,
+  "block.tipsuccess": TipsuccessCard,
+  "block.tipdanger": TipdangerCard,  
+};
+
+export default  async function Terms() { 
+
+  const query = qs.stringify({
+      fields: ['title', 'description', 'seourl', 'createdAt', 'publishedAt', 'updatedAt'],
+      populate: {
+        image: { populate: '*' }, 
+        faqbody: { populate: '*' },     
+      },
+      status: 'published',
+      locale: ['en'],
+    }, { encodeValuesOnly: true });
+    
+    const finalUrl = `faq?${query}`;
+
+    const response = await strapiFetch(finalUrl);
+      console.log(response);
+      // 1. Check if response exists
+  if (!response || !response.data) {
+    return <div>Loading or Error...</div>; 
+  }
+
+    // 2. Access the fields from inside data
+  const { title, description, seourl, faqbody } = response.data;
+
     const sections = [
     {
       title: '1. Agreement to Terms',
