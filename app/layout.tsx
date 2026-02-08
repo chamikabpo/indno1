@@ -7,6 +7,7 @@ import Sidebar from './components/Sidebar';
 import LotteryCard from './components/LotteryCard';
 import Application from './components/Application';
 import Footer from './components/Footer';
+import {LiveChat , ChatButton} from '@/components/LiveChatWidget';
 
 export const metadata: Metadata = {
   title: {
@@ -69,7 +70,9 @@ export default function RootLayout({
              <Footer/> 
 
                {/* Floating Support Button */}
-            <button className="support-btn">💬</button>               
+            {/* <button className="support-btn">💬</button>   */}
+            <LiveChat />
+                         
 
         </div>
 

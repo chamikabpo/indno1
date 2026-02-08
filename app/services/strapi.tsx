@@ -11,12 +11,13 @@ export async function strapiFetch(path: string, queryObj: object = {}) {
 }
 */
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
-const baseUrl = "http://192.168.1.236:1337";
+//const baseUrl = "http://localhost:1337";
+const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 const TOKEN = process.env.API_TOKEN_SALT;
 
 // app/services/strapi.tsx
 export async function strapiFetch(path: string) {
-  const baseUrl = "http://localhost:1337";
+  //const baseUrl = "http://localhost:1337";
   // 1. Get the base URL from env or fallback to localhost
 
   
@@ -39,7 +40,7 @@ export async function strapiFetch(path: string) {
 
 
 export async function strapiUrlImage(path: string) {
-  const baseUrl = "http://192.168.1.236:1337";
+  //const baseUrl = "http://localhost:1337";
   // 1. Get the base URL from env or fallback to localhost
 
   
@@ -69,7 +70,7 @@ export async function strapiUrlImage(path: string) {
 
 
 export function getStrapiMedia(url: string | null) {
-  const baseUrl = "http://192.168.1.236:1337";
+  //const baseUrl = "http://localhost:1337";
   if (url == null) return null;
 
   // If it's already a full URL (e.g. hosted on S3/Cloudinary), return it
@@ -81,7 +82,7 @@ export function getStrapiMedia(url: string | null) {
 
 
 export async function getBlogByDocumentId(docId: string) {
-  const baseUrl = "http://localhost:1337";
+  //const baseUrl = "http://localhost:1337";
   const res = await fetch(`${baseUrl}/api/blogs/${docId}?populate=deep`, {  
     headers: {
       Authorization: `Bearer ${TOKEN}`,
@@ -97,7 +98,7 @@ export async function getBlogByDocumentId(docId: string) {
 
 
 export async function getBlogBySlug(slug: string) {
-  const baseUrl = "http://localhost:1337";
+  //const baseUrl = "http://localhost:1337";
   // We use a filter to find the post where the slug matches
 
 // Try this specific syntax format
@@ -124,7 +125,7 @@ export async function getBlogBySlug(slug: string) {
 }
 
 export async function getAllCategories() {
-  const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
+  //const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
   
   // We use populate=* if you want to count how many blogs are in each category
   const res = await fetch(`${baseUrl}/api/gamepages?populate=*`, {  

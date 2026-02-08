@@ -2707,6 +2707,14 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+       nav .nav-menu {
+        display: none;
+      }
+
+      .sidebar{
+        position: relative;       
+      }
+
     }
 
     @media (max-width: 640px) {
@@ -2719,13 +2727,16 @@
         width: 100%;
       }
 
-      .games-grid,
-      .racing-grid,
-      .casino-grid,
+     .games-grid,
+      .racing-grid,      
       .live-grid,
       .lottery-grid {
         grid-template-columns: 1fr;
       }
+
+       .casino-grid{
+        grid-template-columns: repeat(3, 1fr);
+      }    
 
       .footer-grid {
         grid-template-columns: 1fr;

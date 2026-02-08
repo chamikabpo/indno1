@@ -27,7 +27,9 @@ export default function Sidebar() {
 
   const [activeSection, setActiveSection] = useState('hot');
   
-  return (<>
+  return (
+  
+      <>
      {/* Navigation */}
             {sidebarItems.map((item) => (
               <Link href={item.href} key={item.id}><button

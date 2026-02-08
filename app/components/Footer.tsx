@@ -1,3 +1,5 @@
+import Link from 'next/link';  
+  
   const socialLinks = [
     { id: '1', label: 'FaceBook', icon: 'f' },
     { id: '2', label: 'x', icon: '𝕏' },
@@ -9,6 +11,48 @@
 ['🌐', '𝕏', 'f', '📷', '📺', '💬', '📱']
 
 
+
+  const casinoFooterItems = [
+    { id: '1', label: 'Casino Home',  href:'' },
+    { id: '2', label: 'Live', href:'' },
+    { id: '3', label: 'New Releases', href:'' },
+    { id: '4', label: 'Recommended', href:'' },
+    { id: '5', label: 'Table Game', href:'' },
+    { id: '6', label: 'Black Jack', href:'' },
+    { id: '7', label: 'Poker', href:'' },
+    { id: '8', label: 'Baccarat', href:'' },
+    { id: '9', label: 'Sports', href:'' },
+  ];    
+
+  const sportFooterItems = [
+    { id: '1', label: 'Sports Home',  href:'' },
+    { id: '2', label: 'Live', href:'' },
+    { id: '3', label: 'Rules', href:'' },
+    { id: '4', label: 'Sport Betting Insights', href:'' },
+   
+  ];   
+
+  const suportFooterItems = [
+    { id: '1', label: 'VIP Club',  href:'' },
+    { id: '2', label: 'Referral', href:'' },
+    { id: '3', label: 'Affiliate', href:'' },
+    { id: '4', label: 'Lottery', href:'' },
+    { id: '5', label: 'Refer a friend', href:'' },
+  
+  ];  
+
+    const legalFooterItems = [
+    { id: '1', label: 'About Us',  href:'' },
+    { id: '2', label: 'Help Center', href:'' },
+    { id: '3', label: 'Gamble Aware', href:'' },
+    { id: '4', label: 'Fairness', href:'' },
+    { id: '5', label: 'FAQ', href:'' },
+    { id: '6', label: 'Privacy Policy', href:'' },
+    { id: '7', label: 'Terms of Service', href:'' },
+  
+  ]; 
+
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -17,46 +61,61 @@ export default function Footer() {
               <div className="footer-column">
                 <h4>Casino</h4>
                 <ul className="footer-links">
-                  <li>Casino Home</li>
-                  <li>Live</li>
-                  <li>New Releases</li>
-                  <li>Recommended</li>
-                  <li>Table Game</li>
-                  <li>Black Jack</li>
-                  <li>Poker</li>
-                  <li>Baccarat</li>
-                  <li>Sports</li>
+                   {casinoFooterItems.map((info, index) => (
+                    <div key={`ft-cso${info.id}`}>
+                       {info.href || info.href.length >= 0 ? (
+ <Link  className="nav-link" href={info.href}  rel="noopener noreferrer" ><li>{info.label}</li></Link>
+                       ):( <li key={info.id} >{info.label}</li>)
+                      
+                      }
+                    </div>               
+                   ))}                 
+                 
                 </ul>
               </div>
               <div className="footer-column">
                 <h4>Sports</h4>
                 <ul className="footer-links">
-                  <li>Sports Home</li>
-                  <li>Live</li>
-                  <li>Rules</li>
-                  <li>Sport Betting Insights</li>
+                   {sportFooterItems.map((info, index) => (
+                    <div key={`ft-sot${info.id}`}>
+                       {info.href || info.href.length >= 0 ? (
+ <Link  className="nav-link" href={info.href}  rel="noopener noreferrer" ><li>{info.label}</li></Link>
+                       ):( <li key={info.id} >{info.label}</li>)
+                      
+                      }
+                    </div>               
+                   ))} 
+                 
                 </ul>
               </div>
               <div className="footer-column">
                 <h4>Support</h4>
                 <ul className="footer-links">
-                  <li>VIP Club</li>
-                  <li>Referral</li>
-                  <li>Affiliate</li>
-                  <li>Lottery</li>
-                  <li>Refer a friend</li>
+                   {suportFooterItems.map((info, index) => (
+                    <div key={`ft-spt${info.id}`}>
+                       {info.href || info.href.length >= 0 ? (
+ <Link  className="nav-link" href={info.href}  rel="noopener noreferrer" ><li>{info.label}</li></Link>
+                       ):( <li key={info.id} >{info.label}</li>)
+                      
+                      }
+                    </div>               
+                   ))} 
+                 
                 </ul>
               </div>
               <div className="footer-column">
                 <h4>Legal</h4>
                 <ul className="footer-links">
-                  <li>About Us</li>
-                  <li>Help Center</li>
-                  <li>Gamble Aware</li>
-                  <li>Fairness</li>
-                  <li>FAQ</li>
-                  <li>Privacy Policy</li>
-                  <li>Terms of Service</li>
+                   {legalFooterItems.map((info, index) => (
+                    <div key={`ft-lgl${info.id}`}>
+                       {info.href || info.href.length >= 0 ? (
+ <Link  className="nav-link" href={info.href}  rel="noopener noreferrer" ><li>{info.label}</li></Link>
+                       ):( <li key={info.id} >{info.label}</li>)
+                      
+                      }
+                    </div>               
+                   ))} 
+                 
                 </ul>
               </div>
               <div className="footer-column">
